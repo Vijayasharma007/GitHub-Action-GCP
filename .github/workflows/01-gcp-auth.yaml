@@ -18,8 +18,9 @@ jobs:
       - name: Authenticate to GCP
         uses: google-github-actions/auth@v2
         with:
-          workload_identity_provider: ${{ secret.workload_identity_provider }}
-          service_account: ${{ secret.service_account }}
+          workload_identity_provider: ${{ secrets.WORKLOAD_IDENTITY_PROVIDER }}
+          service_account: ${{ secrets.SERVICE_ACCOUNT }}
+
 
       - name: Test GCP Access
         run: gcloud projects list

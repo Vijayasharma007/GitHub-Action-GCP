@@ -1,4 +1,4 @@
-name: Deploy to GCP
+name: Authenticate and Deploy to GCP
 
 on:
   push:
@@ -12,15 +12,15 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Code
+      - name: Checkout Repo
         uses: actions/checkout@v4
 
       - name: Authenticate to GCP
         uses: google-github-actions/auth@v2
         with:
           token_format: 'id_token'
-          workload_identity_provider: projects/832520843662/locations/global/workloadIdentityPools/vijayasharma-github-actions-pool/providers/github-action-provider
+          workload_identity_provider: 'projects/832520843662/locations/global/workloadIdentityPools/vijayasharma-github-actions-pool/providers/github-provider'  # 👈 use exact name from step 1
           service_account: 'vijayasharma-github-action@training-2024-batch.iam.gserviceaccount.com'
 
-      - name: Run gcloud
+      - name: Test GCP Access
         run: gcloud projects list

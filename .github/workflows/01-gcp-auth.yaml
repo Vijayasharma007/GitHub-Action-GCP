@@ -19,7 +19,7 @@ jobs:
         uses: google-github-actions/auth@v2
         with:
           token_format: 'id_token'
-          workload_identity_provider: 'projects/832520843662/locations/global/workloadIdentityPools/vijayasharma-github-actions-pool/providers/github-provider'  # 👈 use exact name from step 1
+          workload_identity_provider: 'projects/832520843662/locations/global/workloadIdentityPools/github-pool/providers/github'
           service_account: 'vijayasharma-github-action@training-2024-batch.iam.gserviceaccount.com'
 
       - name: Test GCP Access

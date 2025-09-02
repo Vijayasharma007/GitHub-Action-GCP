@@ -5,9 +5,8 @@ on:
     branches: [ main ]
 
   pull_request:
-    branches: [main]
+    branches: [ main ]
     paths: ["s3/**"]
-
 
 permissions:
   id-token: write
@@ -26,12 +25,11 @@ jobs:
           workload_identity_provider: ${{ secrets.WORKLOAD_IDENTITY_PROVIDER }}
           service_account: ${{ secrets.SERVICE_ACCOUNT }}
 
-     
       - uses: hashicorp/setup-terraform@v3
 
       - name: Terraform fmt
-          run: terraform fmt -check
-          continue-on-error: true
+        run: terraform fmt -check
+        continue-on-error: true
 
       - name: Terraform Init
         run: terraform init -input=false

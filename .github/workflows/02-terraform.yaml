@@ -1,6 +1,7 @@
 name: Authenticate and Deploy to GCP
 
 on:
+  workflow_dispatch:
   push:
   branches: [ main ]
 

@@ -1,13 +1,14 @@
 name: Authenticate and Deploy to GCP
 
 on:
-  workflow_dispatch:
-  push:
-  branches: [ main ]
+  #workflow_dispatch:
+  #push:
+  #branches: [ main ]
 
   pull_request:
     branches: [ main ]
-    paths: ["s3/**"]
+    paths: s3/**
+    workflow_dispatch:
 
 permissions:
   id-token: write

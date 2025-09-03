@@ -22,6 +22,7 @@ jobs:
           service_account: ${{ secrets.SERVICE_ACCOUNT }}
 
 
+
       - name: Test GCP Access
         run: gcloud projects list
 
